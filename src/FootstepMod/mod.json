@@ -1,8 +1,8 @@
 {
     "author": "rookiecookie153",
-    "name":"Why So Serious Mod",
+    "name":"Footstep SFX",
     "genres":["Any"],
     "content": {
-        "autorun": ["lua/main.server.lua"]
+        "autorun": ["lua/main.client.lua"]
     }
 }

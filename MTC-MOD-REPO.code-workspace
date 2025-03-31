@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"luau-lsp.types.definitionFiles": [
+			".lsp-syntax/MTC_TYPES.lua"
+		],
+		"luau-lsp.sourcemap.autogenerate": true,
+		"liveshare.connectionMode": "auto"
+	}
+}

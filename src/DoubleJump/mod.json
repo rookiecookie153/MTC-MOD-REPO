@@ -1,0 +1,8 @@
+{
+    "author": "okeaoss",
+    "name":"Double Jump",
+    "genres":["Any"],
+    "content": {
+        "autorun": ["lua/main.client.lua"]
+    }
+}

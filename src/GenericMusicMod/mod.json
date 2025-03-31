@@ -1,0 +1,8 @@
+{
+    "author": "rookiecookie153",
+    "name": "Generic Music Mod",
+    "genres": ["Music"],
+    "content": {
+        "autorun": ["lua/main.client.lua"]
+    }
+}
