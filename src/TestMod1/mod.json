@@ -3,6 +3,7 @@
     "name":"Test Mod 1",
     "genres":["Any"],
     "content": {
-        "autorun": ["lua/test.server.lua", "lua/test.client.lua"]
+        "autorun": ["lua/test.server.lua", "lua/test.client.lua"],
+        "model": ["model/avatar.rbxmx"]
     }
 }

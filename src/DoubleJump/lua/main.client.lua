@@ -8,7 +8,7 @@ return function()
     local ismidair = false
     local usedDoubleJump = false
 
-    print("doing the maaaagiiicccc")
+    -- print("doing the maaaagiiicccc")
 
     Hum.StateChanged:Connect(function(old, new)
         if old == Enum.HumanoidStateType.Jumping and new == Enum.HumanoidStateType.Freefall then
