@@ -1,8 +1,11 @@
 {
     "author": "rookiecookie153",
-    "name": "Generic Music Mod",
+    "name": "Generic Music Addon",
     "genres": ["Music"],
     "content": {
+        "user": {
+            "configfile": "config.json"
+        },
         "autorun": ["lua/main.client.lua"]
     }
 }

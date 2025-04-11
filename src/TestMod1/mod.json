@@ -1,9 +1,14 @@
 {
     "author": "rookiecookie153",
-    "name":"Test Mod 1",
+    "name":"Test Addon 1",
     "genres":["Any"],
     "content": {
+        "user": {
+            "configfile": "config.json"
+        },
         "autorun": ["lua/test.server.lua", "lua/test.client.lua"],
-        "model": ["model/avatar.rbxmx"]
+        "resources": [
+            "model/avatar.coft"
+        ]
     }
 }

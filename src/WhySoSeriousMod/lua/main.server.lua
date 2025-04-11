@@ -1,7 +1,8 @@
 ScriptAttribute("RuntimeIntention", "Server")
-
+---Hey, it's me, Those Who Know! 💀
 return function()
 	local Debris = game:GetService("Debris")
+	
 	PerPlayer(function(client)
 		client.CharacterAdded:Connect(function(char)
 			local msg = Instance.new("Message")

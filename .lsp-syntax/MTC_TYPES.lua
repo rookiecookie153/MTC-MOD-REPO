@@ -16,31 +16,49 @@ declare function ScriptAttribute(name: string, ...:any)
 declare ScriptId: string
 declare addon: Addon
 export type Addon = {
-    Name: string;
-    Author: string;
+    Id: string; -- name by directory
+    Name: string; -- name specified by manifest
+    Author: string; -- author specified by manifest
 }
 
+-- global libraries
+type ValidSetting = string | number | boolean;
+declare user: {
+    settings: {
+        get: (name: string, ifNil: ValidSetting) -> ValidSetting;
+        set: (name: string, value: ValidSetting) -> ();
+        onChanged: <T>(property: string, callback: (value: T) -> ()) -> RBXScriptConnection;
+        changed: RBXScriptSignal;
+    };
+}
 
+declare mdl: {
+    import: (id: string, name: string) -> (Instance?, string);
+}
 
-
-
-
--- // EZGLOBALS //
-
--- idk yet
 declare const: {
     get: (name: string) -> (any);
     set: (name: string, value: any) -> ();
 }
 
--- idk yet
 declare namespace: {
     get: (name: string) -> Dictionary<string, any>;
 }
 
--- Proxy for StarterGui:SetCore("SendNotification", data)
-declare function Notify(data: Dictionary<string, any>)
+export type NotificationConfig = {
+    Title: string;
+    Text: string;
+    Icon: string?;
+    Duration: number?;
+    Callback: BindableFunction?;
+    Button1: string?;
+    Button2: string?;
+}
+declare rbx: {
+    notify: (data: NotificationConfig) -> ();
+}
 
+-- drsgiuohweasfuihbf
 declare function PerPlayer(body: (client: Player) -> ())
 
 -- The LocalPlayer

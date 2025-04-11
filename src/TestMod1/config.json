@@ -1,0 +1,17 @@
+[
+    {
+        "name": "Example String",
+        "type": "string",
+        "value": "This string is MASSIVE!"
+    },
+    {
+        "name": "Example Number",
+        "type": "number",
+        "value": 1
+    },
+    {
+        "name": "Example Boolean",
+        "type": "boolean",
+        "value": false
+    }
+]

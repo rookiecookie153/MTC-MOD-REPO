@@ -1,6 +1,7 @@
 ScriptAttribute("RuntimeIntention", "Client")
 
 return function()
+    print('I... had a preeeetty interesting day')
     local SoundService = game:GetService("SoundService")
 
     local SongsById = {
@@ -9,21 +10,28 @@ return function()
             Author = "Takeshi Abo";
             Properties = {
                 PlaybackSpeed = 0.25;
-                Volume = .2;
+                -- Volume = .2;
             };
         };
     }
 
     local MusicSoundGroup = Instance.new("SoundGroup")
+    MusicSoundGroup.Volume = user.settings.get("Volume", .5)
+    user.settings.onChanged("Volume", function(volume: number)
+        print(volume)
+        MusicSoundGroup.Volume = volume
+    end)
     MusicSoundGroup.Name = "MusicSoundGroup"
 
     local SongExport = {}
 
     for id, data in pairs(SongsById) do
         local sound = Instance.new("Sound")
+        sound.Volume = 1
         for name, prop in pairs(data.Properties) do
             sound[name] = prop
         end
+        sound.SoundGroup = MusicSoundGroup
         sound.SoundId = id
         sound.Parent = MusicSoundGroup
         table.insert(SongExport, {sound=sound, author=(data.Author or "Unknown Author"), name=(data.Name or "Untitled Song")})
@@ -36,12 +44,14 @@ return function()
 
     MusicSoundGroup.Parent = SoundService
 
-    for _, song in pairs(SongExport) do
-        Notify {
-            Title = "Now playing";
-            Text = string.format("%s (by %s)", song.name, song.author);
-        }
-        song.sound:Play()
-        song.sound.Ended:Wait()
+    while task.wait() do
+        for _, song in pairs(SongExport) do
+            rbx.notify {
+                Title = "Now playing";
+                Text = string.format("%s (by %s)", song.name, song.author);
+            }
+            song.sound:Play()
+            song.sound.Ended:Wait()
+        end
     end
 end

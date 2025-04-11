@@ -3,6 +3,8 @@
     "name": "GPD9",
     "genres": ["Development"],
     "content": {
-        "autorun": ["lua/main.server.lua"]
+        "user": {},
+        "autorun": ["lua/main.server.lua"],
+        "resources": []
     }
 }
