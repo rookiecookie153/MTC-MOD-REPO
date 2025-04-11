@@ -1,0 +1,11 @@
+{
+    "author": "rookiecookie153",
+    "name": "Play Sound Before Leave",
+    "genres":["Any"],
+    "content": {
+        "user": {
+            "configfile": "config.json"
+        },
+        "autorun": ["lua/main.client.lua"]
+    }
+}

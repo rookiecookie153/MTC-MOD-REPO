@@ -1,4 +1,6 @@
 [
     "TestMod1",
-    "GenericMusicMod"
+    "PlaySoundOnLeave",
+    "GenericMusicMod",
+    "DoubleJump"
 ]

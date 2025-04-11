@@ -1,17 +1,27 @@
 [
-    {
-        "name": "Example String",
-        "type": "string",
-        "value": "This string is MASSIVE!"
-    },
-    {
-        "name": "Example Number",
-        "type": "number",
-        "value": 1
-    },
-    {
-        "name": "Example Boolean",
-        "type": "boolean",
-        "value": false
-    }
+    {"name": "Example String 1", "type": "string", "value": "This string is MASSIVE!"},
+    {"name": "Example Number 1", "type": "number", "value": 1},
+    {"name": "Example Boolean 1", "type": "boolean", "value": false},
+
+    {"name": "Example String 2", "type": "string", "value": "This string is MASSIVE!"},
+    {"name": "Example Number 2", "type": "number", "value": 1},
+    {"name": "Example Boolean 2", "type": "boolean", "value": false},
+
+    {"name": "Example String 3", "type": "string", "value": "This string is MASSIVE!"},
+    {"name": "Example Number 3", "type": "number", "value": 1},
+    {"name": "Example Boolean 3", "type": "boolean", "value": false},
+
+    {"name": "Example String 4", "type": "string", "value": "This string is MASSIVE!"},
+    {"name": "Example Number 4", "type": "number", "value": 1},
+    {"name": "Example Boolean 4", "type": "boolean", "value": false},
+
+    {"name": "Example String 5", "type": "string", "value": "This string is MASSIVE!"},
+    {"name": "Example Number 5", "type": "number", "value": 1},
+    {"name": "Example Boolean 5", "type": "boolean", "value": false},
+
+    {"name": "Example String 6", "type": "string", "value": "This string is MASSIVE!"},
+    {"name": "Example Number 6", "type": "number", "value": 1},
+    {"name": "Example Boolean 6", "type": "boolean", "value": false}
+
+
 ]

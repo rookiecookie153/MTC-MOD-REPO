@@ -1,7 +1,6 @@
 ScriptAttribute("RuntimeIntention", "Client")
 
 return function()
-    print('I... had a preeeetty interesting day')
     local SoundService = game:GetService("SoundService")
 
     local SongsById = {
@@ -18,7 +17,6 @@ return function()
     local MusicSoundGroup = Instance.new("SoundGroup")
     MusicSoundGroup.Volume = user.settings.get("Volume", .5)
     user.settings.onChanged("Volume", function(volume: number)
-        print(volume)
         MusicSoundGroup.Volume = volume
     end)
     MusicSoundGroup.Name = "MusicSoundGroup"
@@ -43,6 +41,8 @@ return function()
     end
 
     MusicSoundGroup.Parent = SoundService
+
+    task.wait(1)
 
     while task.wait() do
         for _, song in pairs(SongExport) do
