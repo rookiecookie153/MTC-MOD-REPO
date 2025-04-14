@@ -1,8 +1,0 @@
-{
-    "author": "rookiecookie153",
-    "name":"Basic Camera Tilt",
-    "genres":["Any"],
-    "content": {
-        "autorun": ["lua/main.client.lua"]
-    }
-}

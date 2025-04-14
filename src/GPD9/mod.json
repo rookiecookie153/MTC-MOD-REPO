@@ -1,8 +1,0 @@
-{
-    "author": "rookiecookie153",
-    "name": "GPD9",
-    "genres": ["Development"],
-    "content": {
-        "autorun": ["lua/main.server.lua"]
-    }
-}
