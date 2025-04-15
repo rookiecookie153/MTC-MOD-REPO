@@ -1,6 +1,11 @@
 ScriptAttribute("RuntimeIntention", "Client")
 
 return function()
+    local ENABLED = user.settings.get('enabled', true)
+    user.settings.onChanged("enabled", function(value: boolean)
+        ENABLED = value
+    end)
+
     local UIS = game:GetService("UserInputService")
     local Char = GetCharacterAsync()
     local Hum = Char.Humanoid
@@ -20,13 +25,14 @@ return function()
     end)
 
     UIS.InputBegan:Connect(function(input, gameProcessedEvent)
-        if not gameProcessedEvent then
-            if input.KeyCode == Enum.KeyCode.Space then
-                if ismidair == true and usedDoubleJump == false then
-                    usedDoubleJump = true
-                    Hum:ChangeState(Enum.HumanoidStateType.Jumping)
-                end
-            end
-        end
+        if gameProcessedEvent then return end
+        if input.KeyCode ~= Enum.KeyCode.Space then return end
+        if ismidair == false or usedDoubleJump == true then return end
+
+        usedDoubleJump = true
+        
+        if not ENABLED then return end
+
+        Hum:ChangeState(Enum.HumanoidStateType.Jumping)
     end)
 end

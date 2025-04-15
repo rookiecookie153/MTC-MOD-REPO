@@ -1,3 +1,4 @@
 [
-    {"name": "Volume", "type": "number", "value": 0.1}
+    {"name": "enabled", "type": "boolean", "value": true},
+    {"name": "volume", "type": "number", "value": 0.1}
 ]

@@ -3,6 +3,9 @@
     "name":"Double Jump",
     "genres":["Any"],
     "content": {
+        "user": {
+            "configfile": "config.json"
+        },
         "autorun": ["lua/main.client.lua"]
     }
 }

@@ -4,7 +4,6 @@ return function()
     local DEFAULT_ID = "rbxassetid://102219567616650";
 
     local RunService = game:GetService("RunService")
-    if RunService:IsStudio() then return end
 
     local Players = game:GetService('Players')
     local SoundService = game:GetService('SoundService')
@@ -19,7 +18,7 @@ return function()
             old = sound.SoundId
         end
         sound.SoundId = id
-        task.wait(.1)
+        task.wait(2)
         if not sound.IsLoaded then
             old = old or DEFAULT_ID
             rbx.notify {
@@ -40,9 +39,10 @@ return function()
     Players.PlayerRemoving:Connect(function(_client)
         if _client == Client then
             if not user.settings.get('Enabled', false) then return end
+            if RunService:IsStudio() and (not user.settings.get('EnabledInStudio', false)) then return end
             
             local start = os.clock()
-            local length = sound.TimeLength + .05
+            local length = math.min(sound.TimeLength + .05, 5)
 
             sound:Play()
 

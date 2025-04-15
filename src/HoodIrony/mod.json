@@ -1,0 +1,12 @@
+{
+    "author": "rookiecookie153",
+    "name":"Hood Irony",
+    "genres":["Any"],
+    "content": {
+        "user": {},
+        "autorun": ["lua/main.server.lua"],
+        "resources": [
+            "model/hood.coft"
+        ]
+    }
+}
