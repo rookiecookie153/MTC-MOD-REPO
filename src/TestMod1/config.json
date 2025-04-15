@@ -3,5 +3,9 @@
     {"name": "Example Number 1", "type": "number", "value": 1},
     {"name": "Example Boolean 1", "type": "boolean", "value": false},
     {"name": "Example Keybind 1", "type": "keybind", "value": "e"},
-    {"name": "Example List 1", "type": "list", "value": ["hi"]}
+    {"name": "Example List 1", "type": "list", "value": ["hi"]},
+    {"name": "Example Dictionary 1", "type": "list", "value": {"foo":"bar"}},
+    {"name": "Example Category 1", "type": "category", "value": [
+        {"name": "Example String 2", "type": "string", "value": "Welcome to my category! I'm quite alone."}
+    ]}
 ]

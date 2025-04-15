@@ -32,18 +32,23 @@ declare user: {
     };
 }
 
+declare lib: {
+    import: (name: string, retryduration: number?) -> any;
+    export: (name: string, value: any) -> ();
+}
+
 declare mdl: {
     import: (id: string, name: string) -> (Instance?, string);
 }
 
-declare const: {
-    get: (name: string) -> (any);
-    set: (name: string, value: any) -> ();
-}
+-- declare const: {
+--     get: (name: string) -> (any);
+--     set: (name: string, value: any) -> ();
+-- }
 
-declare namespace: {
-    get: (name: string) -> Dictionary<string, any>;
-}
+-- declare namespace: {
+--     get: (name: string) -> Dictionary<string, any>;
+-- }
 
 export type NotificationConfig = {
     Title: string;
@@ -66,3 +71,7 @@ declare Client: Player
 
 -- Returns the client's character
 declare function GetCharacterAsync(): Model
+
+-- Returns the client's humanoid
+declare function GetHumanoidAsync(): Model
+

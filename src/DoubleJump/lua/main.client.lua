@@ -1,14 +1,33 @@
 ScriptAttribute("RuntimeIntention", "Client")
 
 return function()
+    local Players = game:GetService('Players')
+    local UIS = game:GetService('UserInputService')
+
     local ENABLED = user.settings.get('enabled', true)
     user.settings.onChanged("enabled", function(value: boolean)
         ENABLED = value
     end)
 
-    local UIS = game:GetService("UserInputService")
+    local CAMERA_PUSH_ENABLED = user.settings.get('camera_push', false)
+    user.settings.onChanged("camera_push", function(value: boolean)
+        CAMERA_PUSH_ENABLED = value
+    end)
+
+    local CAMERA_PUSH_SIZE = user.settings.get('camera_push_size', .2)
+    user.settings.onChanged("camera_push_size", function(value: number)
+        CAMERA_PUSH_SIZE = value
+    end)
+
+    local clPushCamera: (size: number) -> () = lib.import("clPushCamera", 1) or function() end
+
     local Char = GetCharacterAsync()
     local Hum = Char.Humanoid
+
+    Client.CharacterAdded:Connect(function(char)
+        Char = char
+        Hum = char:WaitForChild("Humanoid")
+    end)
     
     local ismidair = false
     local usedDoubleJump = false
@@ -34,5 +53,9 @@ return function()
         if not ENABLED then return end
 
         Hum:ChangeState(Enum.HumanoidStateType.Jumping)
+
+        if CAMERA_PUSH_ENABLED then
+            clPushCamera(math.clamp(CAMERA_PUSH_SIZE, .2, 2))
+        end
     end)
 end
