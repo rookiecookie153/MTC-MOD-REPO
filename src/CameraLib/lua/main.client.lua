@@ -13,6 +13,13 @@ return function()
     local angle = Vector3.zero
     local angleGoal = Vector3.zero
 
+    save.update("example", function(old: number?)
+        if not old then
+            return 1
+        end
+        return old + 1
+    end)
+
     local char: Model
     local hum: Humanoid
 
@@ -21,6 +28,51 @@ return function()
         hum = _char:WaitForChild("Humanoid")
     end)
     
+    local OffsetList: {CFrame} = {}
+
+    local function MakeOffset()
+        local offsetIndex = #OffsetList+1
+
+        local value = CFrame.identity
+        OffsetList[offsetIndex] = value
+
+        local m = {
+            active = true;
+            _index = offsetIndex;
+        }
+
+        m.set = function(cf: CFrame)
+            if not m.active then return end
+            if typeof(cf) ~= "CFrame" then
+                warn(`Input {cf} is not a valid CFrame`)
+                return
+            end
+            value = cf
+            OffsetList[offsetIndex] = value
+        end
+
+        m.get = function()
+            if not m.active then return end
+            return value
+        end
+
+        return m
+    end
+
+    local function DeleteOffset(offset: {get: () -> (CFrame), set: (cf: CFrame) -> (), _index: number, active: boolean})
+        if not offset.active then return end
+        OffsetList[offset._index] = nil
+        offset.active = false
+    end
+
+    local shakeOffset = MakeOffset()
+    local positionShakeSize = 0
+    local rotationShakeSize = 0
+    local function GenericShake(positionScale: number, rotationScale: number)
+        positionShakeSize = positionScale
+        rotationShakeSize = rotationScale
+    end
+
     RunService:BindToRenderStep("ONE53_BASIC_CAMERA_LIB_PRE_RENDER", Enum.RenderPriority.Camera.Value + 1, function(dt)
         oldCameraCFrame = camera.CFrame
 
@@ -29,7 +81,39 @@ return function()
         local stretch = math.clamp(math.map((angle*Vector3.new(1,1,.01)).Magnitude^.5, 0, 16, 1, .01), 0, 1)
 
         local angleOffset = CFrame.Angles(0,math.rad(angle.Y),math.rad(angle.Z))*CFrame.Angles(math.rad(angle.X),0,0)
-        camera.CFrame *= angleOffset * CFrame.new(
+
+        positionShakeSize = math.lerp(positionShakeSize, 0, math.min(1, dt*60*.1))
+        rotationShakeSize = math.lerp(rotationShakeSize, 0, math.min(1, dt*60*.1))
+
+        
+        -- holy massive
+        local zrot = math.rad(rng:NextNumber(-180, 180))
+        shakeOffset.set(
+            shakeOffset.get():Lerp(
+                CFrame.new(
+                    rng:NextUnitVector() * rng:NextNumber(.1, 1) * positionShakeSize
+                ) * CFrame.fromAxisAngle(
+                    Vector3.zAxis,
+                    zrot
+                ) * CFrame.Angles(
+                    math.rad(rng:NextNumber(-20, 20) * rotationShakeSize),
+                    0,
+                    math.rad(rng:NextNumber(-20, 20) * rotationShakeSize)
+                ) * CFrame.Angles(
+                    0,
+                    0,
+                    -zrot
+                ),
+                math.min(1, dt*60*.4)
+            )
+        )
+
+        local offsetSum = CFrame.identity
+        for i, offset in pairs(OffsetList) do
+            offsetSum *= offset
+        end
+
+        camera.CFrame *= angleOffset * offsetSum * CFrame.new(
 			0, 0, 0,
 			stretch, 0, 0,
 			0, stretch, 0,
@@ -72,4 +156,11 @@ return function()
     end
 
     lib.export("clPushCamera", PushCamera)
+    lib.export("clMakeOffset", MakeOffset)
+    lib.export("clDeleteOffset", DeleteOffset)
+    lib.export("clGenericShake", GenericShake)
+
+    -- while task.wait(1) do
+    --     GenericShake(1, 1)
+    -- end
 end

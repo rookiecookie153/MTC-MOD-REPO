@@ -3,6 +3,7 @@
     "name": "Generic Music Addon",
     "genres": ["Music"],
     "content": {
+        "icon": "rbxassetid://78691247457807",
         "user": {
             "configfile": "config.json"
         },

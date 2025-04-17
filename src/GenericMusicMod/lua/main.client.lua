@@ -15,19 +15,27 @@ return function()
                 -- Volume = .2;
             };
         };
-        ["rbxassetid://132691940653966"] = {
-            Name = "Disco Shmisco";
-            Author = "Kenneth C M Young";
+        -- ["rbxassetid://132691940653966"] = {
+        --     Name = "Disco Shmisco";
+        --     Author = "Kenneth C M Young";
+        --     Properties = {
+        --         PlaybackSpeed = 1;
+        --         -- Volume = .2;
+        --     };
+        -- };
+        -- ["rbxassetid://113351567755479"] = {
+        --     Name = "Tea by the Sea";
+        --     Author = "Mat Clark";
+        --     Properties = {
+        --         PlaybackSpeed = 0.25;
+        --         -- Volume = .2;
+        --     };
+        -- };
+        ["rbxassetid://97040499649169"] = {
+            Name = "The Zodiac";
+            Author = "Down To The Bone";
             Properties = {
-                PlaybackSpeed = 1;
-                -- Volume = .2;
-            };
-        };
-        ["rbxassetid://113351567755479"] = {
-            Name = "Tea by the Sea";
-            Author = "Mat Clark";
-            Properties = {
-                PlaybackSpeed = 0.25;
+                PlaybackSpeed = 1/1.309;
                 -- Volume = .2;
             };
         };

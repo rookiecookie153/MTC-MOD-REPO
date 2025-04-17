@@ -3,6 +3,7 @@
     "name": "Play Sound Before Leave",
     "genres":["Any"],
     "content": {
+        "icon": "rbxassetid://135866265957557",
         "user": {
             "configfile": "config.json"
         },

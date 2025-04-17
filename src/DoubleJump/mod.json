@@ -3,6 +3,7 @@
     "name":"Double Jump",
     "genres":["Any"],
     "content": {
+        "icon": "rbxassetid://6212253422",
         "user": {
             "configfile": "config.json"
         },

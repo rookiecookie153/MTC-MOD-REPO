@@ -3,6 +3,7 @@
     "name":"Test Addon 1",
     "genres":["Any"],
     "content": {
+        "icon": "rbxassetid://118406128553737",
         "user": {
             "configfile": "config.json"
         },

@@ -1,5 +1,6 @@
 [
     {"name": "enabled", "type": "boolean", "value": true},
     {"name": "camera_push", "type": "boolean", "value": false},
+    {"name": "camera_use_shake", "type": "boolean", "value": false},
     {"name": "camera_push_size", "type": "number", "value": 0.2}
 ]

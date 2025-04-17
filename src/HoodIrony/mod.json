@@ -4,7 +4,11 @@
     "genres":["Any"],
     "content": {
         "user": {},
-        "autorun": ["lua/main.server.lua"],
+        "autorun": [
+            "lua/main.server.lua",
+            "lua/entity/hood.server.lua",
+            "lua/entity/hood.client.lua"
+        ],
         "resources": [
             "model/hood.coft"
         ]

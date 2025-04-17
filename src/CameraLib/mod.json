@@ -3,6 +3,7 @@
     "name":"Basic Camera Tilt",
     "genres":["Any"],
     "content": {
+        "icon": "",
         "autorun": ["lua/main.client.lua"]
     }
 }

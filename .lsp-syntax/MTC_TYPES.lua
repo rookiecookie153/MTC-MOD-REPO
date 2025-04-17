@@ -41,6 +41,14 @@ declare mdl: {
     import: (id: string, name: string) -> (Instance?, string);
 }
 
+declare save: {
+    set: (name: string, value: any) -> ();
+    get: (name: string) -> any;
+    update: (name: string, callback: (any) -> any) -> ();
+    remove: (name: string) -> any;
+    increment: (name: string, delta: number) -> ();
+}
+
 -- declare const: {
 --     get: (name: string) -> (any);
 --     set: (name: string, value: any) -> ();

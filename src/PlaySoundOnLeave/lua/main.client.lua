@@ -1,7 +1,8 @@
 ScriptAttribute("RuntimeIntention", "Client")
 
 return function()
-    local DEFAULT_ID = "rbxassetid://102219567616650";
+    -- local DEFAULT_ID = "rbxassetid://102219567616650";
+    local DEFAULT_ID = "rbxassetid://4635531130";
 
     local RunService = game:GetService("RunService")
 
